@@ -9,6 +9,6 @@
   <strong>Description:</strong>
   <%= @topic.description %>
 </p>
-
+<%= image_tag @topic.image.url(:small) %>
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
