@@ -63,3 +63,4 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
 end
+gem 'font-awesome-sass' , '~>4.6.2'

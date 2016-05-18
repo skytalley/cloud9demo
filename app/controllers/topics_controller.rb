@@ -60,11 +60,16 @@ class TopicsController < ApplicationController
       format.json { head :no_content }
     end
   end
-def upvote
+ def upvote
   @topic = Topic.find(param[:id])
   @topic.votes.create
   redirect_to(topics_path)
-end
+ end
+ def downvote
+    @topic =Topic.find(params[:id])
+    @topic.votes.last.destroy
+    redirect_to :background
+ end  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
@@ -73,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:title, :description, :image, :upvote)
+      params.require(:topic).permit(:title, :description, :image, :upvote, :downvote)
     end
 end
